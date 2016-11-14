@@ -5,13 +5,12 @@ angular.module('myApp', [
   'ngRoute',
   'myApp.viewBasic',
   'myApp.viewAdvance',
-  'myApp.view1',
-  'myApp.view2',
   'myApp.version',
-  'myApp.arithmetic'
+  'myApp.arithmetic',
+  'myApp.arithmetic.service'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');
 
-  $routeProvider.otherwise({redirectTo: '/view1'});
+  $routeProvider.otherwise({redirectTo: '/view-basic'});
 }]);

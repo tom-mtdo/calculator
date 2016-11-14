@@ -1,5 +1,3 @@
-<p>'Hello, {{$ctrl.user}}!'</p>
-
 <form name="frmCal" novalidate> <!-- do not use default validation of browser -->
  	<p>
  		Number 1: <input name="num1" type="number" ng-model="$ctrl.num1" ng-pattern="$ctrl.regexp" required>
@@ -14,8 +12,9 @@
  		<select ng-model="$ctrl.ope" ng-options="x for x in $ctrl.operators"></select>
  	</p>
  	<p>
- 		Number 2: <input name="num2" type="number" ng-model="$ctrl.num2" ng-pattern="$ctrl.regexp" ng-disabled="$ctrl.isNeedNum2(ope)">
+ 		Number 2: <input name="num2" type="number" ng-model="$ctrl.num2" ng-pattern="$ctrl.regexp" ng-disabled="!$ctrl.isNeedNum2(ope)" ng-required="$ctrl.isNeedNum2(ope)">
  		<span style="color:red" ng-show="frmCal.num2.$dirty && frmCal.num2.$invalid">
+ 			<span ng-show="frmCal.num2.$error.required">Second number is required!</span>
  			<span ng-show="frmCal.num2.$error.pattern">Not a valid number!</span>
  			<span ng-show="frmCal.num2.$error.number">Number only!</span>
  			<!-- {{myForm.input.$error}} -->
