@@ -15,7 +15,7 @@ angular.module('myApp.arithmetic', [
 	this.num1 = 0;
 	this.ope = this.operators[0];
 	this.num2 = 0;
-	this.calResult = "Input number(s), select operator, then press Calculate button to see result.";
+	this.calResult = arithmeticService.sum(this.num1, this.num2);
 
 	this.calculate = function(){
 		switch( this.ope ){
