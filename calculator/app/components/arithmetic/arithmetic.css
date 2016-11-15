@@ -1,0 +1,16 @@
+.arithmetic > h1, h2, h3, h4, h5 {
+  text-align: center;
+}
+.arithmetic label {
+	text-align: left;
+	width: 100px;
+	float: left;
+}
+
+.arithmetic input, button {
+	width: 150px;
+}
+
+.arithmetic > .result {
+	font-weight: bold;
+}

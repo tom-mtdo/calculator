@@ -1,18 +1,23 @@
-<form name="frmCal" novalidate> <!-- do not use default validation of browser -->
- 	<p>
- 		Number 1: <input name="num1" type="number" ng-model="$ctrl.num1" ng-pattern="$ctrl.regexp" required>
+<p><h3>Arithmetic calculator</h3></p>
+<form name="frmCal" novalidate class="arithmetic"> <!-- do not use default validation of browser -->
+ 	<!-- First number -->
+ 	<p>	<label for="num1">Number 1:</label>
+ 		<input name="num1" type="number" ng-model="$ctrl.num1" ng-pattern="$ctrl.regexp" required>
+ 		<br> <!-- Error message -->
  		<span style="color:red" ng-show="frmCal.num1.$dirty && frmCal.num1.$invalid">
  			<span ng-show="frmCal.num1.$error.required">First number is required!</span>
  			<span ng-show="frmCal.num1.$error.pattern">Not a valid number!</span>
  			<span ng-show="frmCal.num1.$error.number">Number only!</span>
- 			<!-- {{myForm.input.$error}} -->
  		</span>
  	</p>
- 	<p>Operator:
- 		<select ng-model="$ctrl.ope" ng-options="x for x in $ctrl.operators"></select>
+ 	<!-- Operator -->
+ 	<p>	<label for="operator">Operator:</label>
+ 		<select name="operator" ng-model="$ctrl.ope" ng-options="x for x in $ctrl.operators"></select>
  	</p>
- 	<p>
- 		Number 2: <input name="num2" type="number" ng-model="$ctrl.num2" ng-pattern="$ctrl.regexp" ng-disabled="!$ctrl.isNeedNum2(ope)" ng-required="$ctrl.isNeedNum2(ope)">
+ 	<!-- Second number -->
+ 	<p>	<label for="num2">Number 2:</label>
+ 		<input name="num2" type="number" ng-model="$ctrl.num2" ng-pattern="$ctrl.regexp" ng-disabled="!$ctrl.isNeedNum2(ope)" ng-required="$ctrl.isNeedNum2(ope)">
+ 		<br> <!-- Error message -->
  		<span style="color:red" ng-show="frmCal.num2.$dirty && frmCal.num2.$invalid">
  			<span ng-show="frmCal.num2.$error.required">Second number is required!</span>
  			<span ng-show="frmCal.num2.$error.pattern">Not a valid number!</span>
@@ -20,6 +25,13 @@
  			<!-- {{myForm.input.$error}} -->
  		</span>
  	</p>
- 	<button ng-click="$ctrl.calculate()" ng-disabled="!frmCal.$valid">Calculate</button>
- 	<h1>Result: {{$ctrl.calResult}}</h1>
+ 	<!-- Calculate button -->
+ 	<p>	<label for="calculate">&nbsp;</label>
+ 		<button name="calculate" ng-click="$ctrl.calculate()" ng-disabled="!frmCal.$valid">Calculate</button>
+ 	</p>
+ 	<!-- Result -->
+ 	<p class="result">	
+ 		<label for="result">Result:</label>
+ 		<span name="result">{{$ctrl.calResult}}</span>
+ 	</p>
 </form>

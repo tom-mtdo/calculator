@@ -6,7 +6,6 @@
 ``````````````````
 calculator/
 	app/
-		bower_components
 		components/
 			arithmetic/
 				arithmetic-service.js
