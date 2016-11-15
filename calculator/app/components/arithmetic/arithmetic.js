@@ -14,8 +14,7 @@ angular.module('myApp.arithmetic', [
 	this.regexp = "^[0-9]+[.]?[0-9]*$";
 	this.num1 = 0;
 	this.ope = this.operators[0];
-	this.num2 = 0;
-	this.calResult = arithmeticService.sum(this.num1, this.num2);
+	this.num2 = 0;	
 
 	this.calculate = function(){
 		switch( this.ope ){
@@ -41,7 +40,9 @@ angular.module('myApp.arithmetic', [
 				this.calResult = "Unknown operator";
 		}
 	}
-		
+	
+	this.calculate();
+
 	this.isNeedNum2 = function(){
 		return !(this.ope.localeCompare("sqrt") == 0);	
 	}		
